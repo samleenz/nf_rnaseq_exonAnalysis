@@ -4,7 +4,7 @@ process GENERATE_GENOME {
     memory "100.G"
     time "4.h"
     module "STAR/2.7.3a"
-    storDir $params.star_genome
+    storeDir "$params.star_genome"
 
     input:
     path(fasta)
