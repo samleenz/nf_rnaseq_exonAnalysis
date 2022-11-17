@@ -5,7 +5,7 @@ process ALIGN_STAR {
     time "2.h"
     module "STAR/2.7.3a"
     tag "$sample"
-    publishDir "results/${params.project}/aligned", mode: 'copy' // default mode would be tosymlink the files 
+    publishDir "results/${params.project}/aligned"
 
     input:
     tuple val(sample), path(reads)
