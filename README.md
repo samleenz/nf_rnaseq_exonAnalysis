@@ -3,6 +3,22 @@
 How to use
 
 1. Download the SRA fastq files of interest using nfcore-fetchings
+    
+    1.1  Download accession list with SRA run selector (https://www.ncbi.nlm.nih.gov/Traces/study/)
+
+```
+# from dir /vast/projects/ncla/lupus_project
+
+nextflow run nf-core/fetchngs --input "SRR_Acc_List_PRJNA293549.txt" --outdir data/PRJNA293549 -profile wehi -c sra_fastq_ftp.config -resume
+
+# where sra_fasrq_gtp.config 
+process {
+    withName: SRA_FASTQ_FTP {
+        maxForks = 10
+    }
+}
+```
+
 2. Using parameters.config as a template make a new version of this file
 
 ```
@@ -25,5 +41,5 @@ params {
 3. Run nextflow as below
 
 ```
-nextflow run main.nf -c <myparams.config> --resume
+nextflow run main.nf -c <myparams.config> -resume
 ```
