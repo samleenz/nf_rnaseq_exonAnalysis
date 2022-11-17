@@ -13,7 +13,11 @@ process ALIGN_STAR {
 
 
     output:
-    path(output)
+    // path(output)
+    tuple
+        path("${sample}_Aligned.sortedByCoord.out.bam"),
+        path("${sample}_Log.out"),
+        path("${sample}_Log.final.out")
     // tuple val(sample), path(output) 
 
 

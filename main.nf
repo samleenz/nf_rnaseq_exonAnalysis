@@ -24,12 +24,12 @@ workflow {
 
     aligned_ch = ALIGN_STAR(read_pairs_ch, star_genome_ch)
 
-    counts_ch = COUNT_EXONS(
-        aligned_ch.collect(), 
-        file(params.gtf, checkIfExists: true),
-        params.gtf_featureType, // "exon"
-        params.gtf_attr // "exon_id"
-        )
+    // counts_ch = COUNT_EXONS(
+    //     aligned_ch.collect(), 
+    //     file(params.gtf, checkIfExists: true),
+    //     params.gtf_featureType, // "exon"
+    //     params.gtf_attr // "exon_id"
+    //     )
 
 }
 
