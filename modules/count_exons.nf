@@ -19,7 +19,7 @@ process COUNT_EXONS {
     script:
     output="featureCounts_${gtf_featureType}_${gtf_attr}.rds"
     """
-    featureCounts.R $gtf $gtf_featureType $gtf_attr $out $task.cpus $bams
+    featureCounts.R $gtf $gtf_featureType $gtf_attr $output $task.cpus $bams
 
     """
 
