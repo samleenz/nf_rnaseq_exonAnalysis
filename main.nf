@@ -23,13 +23,18 @@ workflow {
     
 
     aligned_ch = ALIGN_STAR(read_pairs_ch, star_genome_ch)
+    //     tuple( // output... 
+    //     path("${sample}_Aligned.sortedByCoord.out.bam"),
+    //     path("${sample}_Log.out"),
+    //     path("${sample}_Log.final.out")
+    // )
 
-    // counts_ch = COUNT_EXONS(
-    //     aligned_ch.collect(), 
-    //     file(params.gtf, checkIfExists: true),
-    //     params.gtf_featureType, // "exon"
-    //     params.gtf_attr // "exon_id"
-    //     )
+    counts_ch = COUNT_EXONS(
+        aligned_ch.map( { it[0] } ).collect(), // map pulls the first val of the tuple
+        file(params.gtf, checkIfExists: true),
+        params.gtf_featureType, // "exon"
+        params.gtf_attr // "exon_id"
+        )
 
 }
 
