@@ -1,5 +1,7 @@
 # nf_rnaseq_exonAnalysis
 
+a WIP 😎 use at your own risk.. 
+
 How to use
 
 1. Download the SRA fastq files of interest using nfcore-fetchings
@@ -41,5 +43,5 @@ params {
 3. Run nextflow as below
 
 ```
-nextflow run main.nf -c <myparams.config> -resume
+nextflow run samleenz/nf_rnaseq_exonAnalysis -c <myparams.config> -resume
 ```
