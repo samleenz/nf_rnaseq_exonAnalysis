@@ -3,6 +3,7 @@
 include { GENERATE_GENOME } from './modules/generate_genome'
 include { RUN_FASTQC } from "./modules/run_fastqc"
 include { RUN_MULTIQC } from "./modules/run_multiqc"
+unlucde { TRIM_ADAPTERS } from "./modules/trim_adapters"
 include { ALIGN_STAR } from './modules/align_star'
 include { COUNT_EXONS } from './modules/count_exons'
 
@@ -16,13 +17,16 @@ workflow {
         // .view()
         // [SRR2244213, [/vast/scratch/users/lee.sa/SRP063355/fastq/SRR2244213_1.fastq, /vast/scratch/users/lee.sa/SRP063355/fastq/SRR2244213_2.fastq]]
 
-    fastqc_ch = RUN_FASTQC(read_pairs_ch)
+    trimmed_read_pairs_ch = TRIM_ADAPTERS(read_pairs_ch)
+    
+    fastqc_ch = RUN_FASTQC(trimmed_read_pairs_ch)
     
 
     multiqc_ch = RUN_MULTIQC(fastqc_ch.collect())
     
 
-    aligned_ch = ALIGN_STAR(read_pairs_ch, star_genome_ch)
+    aligned_ch = ALIGN_STAR(trimmed_read_pairs_ch, star_genome_ch)
+    // aligned_ch = ALIGN_STAR(read_pairs_ch, star_genome_ch)
     //     tuple( // output... 
     //     path("${sample}_Aligned.sortedByCoord.out.bam"),
     //     path("${sample}_Log.out"),
