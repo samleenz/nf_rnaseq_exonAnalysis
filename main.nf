@@ -35,7 +35,7 @@ workflow {
 
     counts_ch = COUNT_EXONS(
         aligned_ch.map( { it[0] } ).collect(), // map pulls the first val of the tuple
-        file(params.gtf, checkIfExists: true),
+        file(params.gtf_count, checkIfExists: true),
         params.gtf_featureType, // "exon"
         params.gtf_attr // "exon_id"
         )
