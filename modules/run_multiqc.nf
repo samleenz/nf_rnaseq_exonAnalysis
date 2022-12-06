@@ -13,7 +13,7 @@ process RUN_MULTIQC {
 
 
     output:
-    path(output)
+    path("${output}/*")
     // tuple val(sample), path(output) 
 
 
@@ -22,7 +22,7 @@ process RUN_MULTIQC {
     // output_1="fastqc_reports/${sample}_1_fastqc.zip"
     """
     mkdir -p $output
-    multiqc -o $output $dirs
+    multiqc -f -o $output $dirs
 
     """
 }
