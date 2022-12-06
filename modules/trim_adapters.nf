@@ -20,10 +20,10 @@ process TRIM_ADAPTERS {
     out2 = "tr_${reads[1]}"
     """
     cutadapt -a AGATCGGAAGAG -A AGATCGGAAGAG --cores $task.cpus \
-        -o tr_${reads[0]} \
-        -p tr_${reads[1]} \
-        $out1 \
-        $out2
+        -o $out1 \
+        -p $out2
+        ${reads[0]} \
+        ${reads[1]} \
 
     """
 }
