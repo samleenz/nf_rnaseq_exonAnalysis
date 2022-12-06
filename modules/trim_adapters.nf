@@ -21,9 +21,9 @@ process TRIM_ADAPTERS {
     """
     cutadapt -a AGATCGGAAGAG -A AGATCGGAAGAG --cores $task.cpus \
         -o $out1 \
-        -p $out2
+        -p $out2 \
         ${reads[0]} \
-        ${reads[1]} \
+        ${reads[1]} 
 
     """
 }
