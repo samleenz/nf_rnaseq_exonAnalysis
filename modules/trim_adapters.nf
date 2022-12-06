@@ -16,12 +16,14 @@ process TRIM_ADAPTERS {
 
 
     script:
+    out1 = tr_${reads[0]}
+    out2 = tr_${reads[1]}
     """
-    cutadapt -a AGATCGGAAGAG -A AGATCGGAAGAG \
+    cutadapt -a AGATCGGAAGAG -A AGATCGGAAGAG --cores $task.cpus \
         -o tr_${reads[0]} \
         -p tr_${reads[1]} \
-        tr_${reads[0]} \
-        tr_${reads[1]}
+        $out1 \
+        $out2
 
     """
 }
