@@ -18,7 +18,7 @@ workflow {
         // [SRR2244213, [/vast/scratch/users/lee.sa/SRP063355/fastq/SRR2244213_1.fastq, /vast/scratch/users/lee.sa/SRP063355/fastq/SRR2244213_2.fastq]]
 
     trimmed_read_pairs_ch = TRIM_ADAPTERS(read_pairs_ch)
-        .vew()
+        .view()
     
     fastqc_ch = RUN_FASTQC(trimmed_read_pairs_ch)
     
