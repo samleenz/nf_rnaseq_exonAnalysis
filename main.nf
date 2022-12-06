@@ -3,7 +3,7 @@
 include { GENERATE_GENOME } from './modules/generate_genome'
 include { RUN_FASTQC } from "./modules/run_fastqc"
 include { RUN_MULTIQC } from "./modules/run_multiqc"
-unlucde { TRIM_ADAPTERS } from "./modules/trim_adapters"
+include { TRIM_ADAPTERS } from "./modules/trim_adapters"
 include { ALIGN_STAR } from './modules/align_star'
 include { COUNT_EXONS } from './modules/count_exons'
 
