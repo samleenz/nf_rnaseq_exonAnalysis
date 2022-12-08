@@ -2,7 +2,7 @@ process COUNT_EXONS {
     //  TODO:
     cpus 10
     memory "48.G"
-    time "1.h"
+    time "2.h"
     // module "subread/1.6.3"
     container 'quay.io/biocontainers/bioconductor-rsubread:2.12.0--r42hc0cfd56_0'
     publishDir "results/${params.project}/counts", mode: 'copy' // default mode would be tosymlink the files 
