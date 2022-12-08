@@ -2,7 +2,7 @@ process TRIM_ADAPTERS {
     //  TODO:
     cpus 4
     memory "24.G"
-    time "1.h"
+    time "2.h"
     container "quay.io/biocontainers/cutadapt:4.1--py310h1425a21_1"
     tag "$sample"
 
