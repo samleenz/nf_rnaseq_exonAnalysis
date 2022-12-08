@@ -26,6 +26,7 @@ process TRIM_ADAPTERS {
         -q 10 \
         -o $out1 \
         -p $out2 \
+        -m 15 \
         ${reads[0]} \
         ${reads[1]} 
 
