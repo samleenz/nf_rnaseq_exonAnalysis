@@ -1,6 +1,6 @@
 process COUNT_EXONS {
     //  TODO:
-    cpus 10
+    cpus 24
     memory "48.G"
     time "2.h"
     // module "subread/1.6.3"
