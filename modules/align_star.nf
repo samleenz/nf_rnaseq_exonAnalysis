@@ -6,7 +6,6 @@ process ALIGN_STAR {
     module "STAR/2.7.3a"
     tag "$sample"
     publishDir "results/${params.project}/aligned"
-    mode "copy"
 
     input:
     tuple val(sample), path(reads)
