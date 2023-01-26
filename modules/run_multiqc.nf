@@ -3,7 +3,8 @@ process RUN_MULTIQC {
     cpus 1
     memory "2.G"
     time "30.m"
-    container "ewels/multiqc"
+    // container "ewels/multiqc"
+    container "quay.io/biocontainers/multiqc:1.14--pyhdfd78af_0"
     publishDir "results/${params.project}", mode: 'copy' // default mode would be tosymlink the files 
     
     
