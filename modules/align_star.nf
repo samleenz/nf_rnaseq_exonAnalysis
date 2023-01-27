@@ -2,7 +2,7 @@ process ALIGN_STAR {
     //  TODO:
     cpus 8
     memory "48.G"
-    time "2.h"
+    time "4.h"
     module "STAR/2.7.3a"
     tag "$sample"
     publishDir "results/${params.project}/aligned"
